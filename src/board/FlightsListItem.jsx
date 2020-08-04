@@ -1,5 +1,4 @@
 import React from "react";
-import FlightsList from "../FlightsList";
 
 export const FlightsListItem = ({
   terminal,
