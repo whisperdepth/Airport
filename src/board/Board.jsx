@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 import { Link } from "react-router-dom";
 import FlightsList from "./FlightsList";
 
@@ -16,12 +17,12 @@ const Board = () => {
     setArrActive(true);
   };
 
-  const depButtonClasses = `table-btn departures ${
-    isDepActive ? "chosen-btn" : ""
-  }`;
-  const arrButtonClasses = `table-btn arrivals ${
-    isArrActive ? "chosen-btn" : ""
-  }`;
+  const depButtonClasses = classNames("table-btn departures", {
+    "chosen-btn": isDepActive,
+  });
+  const arrButtonClasses = classNames("table-btn arrivals", {
+    "chosen-btn": isArrActive,
+  });
 
   return (
     <div className="board">
