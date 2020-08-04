@@ -1,41 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import classNames from "classnames";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import FlightsList from "./FlightsList";
 
 const Board = () => {
-  const [isDepActive, setDepActive] = useState(false);
-  const [isArrActive, setArrActive] = useState(false);
-
-  const onDepClick = () => {
-    setDepActive(true);
-    setArrActive(false);
-  };
-
-  const onArrClick = () => {
-    setDepActive(false);
-    setArrActive(true);
-  };
+  const location = useLocation();
 
   const depButtonClasses = classNames("table-btn departures", {
-    "chosen-btn": isDepActive,
+    "chosen-btn": location.pathname.includes("/departures"),
   });
   const arrButtonClasses = classNames("table-btn arrivals", {
-    "chosen-btn": isArrActive,
+    "chosen-btn": location.pathname.includes("/arrivals"),
   });
 
   return (
     <div className="board">
       <div className="board__btns">
         <Link to="/departures" className="link">
-          <button onClick={onDepClick} className={depButtonClasses}>
-            DEPARTURES
-          </button>
+          <button className={depButtonClasses}>DEPARTURES</button>
         </Link>
         <Link to="/arrivals" className="link">
-          <button onClick={onArrClick} className={arrButtonClasses}>
-            ARRIVALS
-          </button>
+          <button className={arrButtonClasses}>ARRIVALS</button>
         </Link>
       </div>
       <div className="field-names">
