@@ -1,79 +1,48 @@
-import React from "react";
-import FlightsListItem from "./FlightsListItem";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-
-const flightsListD = [
-  {
-    terminal: "A",
-    localTime: "0:45",
-    destination: "Lviv",
-    status: "departed",
-    airline: "Fly Away",
-    flight: "q123",
-  },
-  {
-    terminal: "B",
-    localTime: "4:00",
-    destination: "Odessa",
-    status: "departed",
-    airline: "Fly Away",
-    flight: "w456",
-  },
-  {
-    terminal: "D",
-    localTime: "18:30",
-    destination: "Uzhorod",
-    status: "departed",
-    airline: "Fly Away",
-    flight: "e678",
-  },
-];
-
-const flightsListA = [
-  {
-    terminal: "C",
-    localTime: "1:45",
-    destination: "Madagascar",
-    status: "departed",
-    airline: "Fly Away",
-    flight: "123",
-  },
-  {
-    terminal: "E",
-    localTime: "20:00",
-    destination: "Maputu",
-    status: "departed",
-    airline: "Fly Away",
-    flight: "456",
-  },
-  {
-    terminal: "D",
-    localTime: "22:00",
-    destination: "Paris",
-    status: "departed",
-    airline: "Fly Away",
-    flight: "678",
-  },
-];
+import FlightsListItem from "./FlightsListItem";
+import { departureSelector, arrivalSelector } from "../flights.selectors";
+import * as flightsActions from "../flights.actions";
 
 const mapFlightList = (flightList) =>
   flightList.map((flight) => (
-    <FlightsListItem key={flight.flight} {...flight} />
+    <FlightsListItem key={flight.flightNum} {...flight} />
   ));
 
-const FlightsList = () => {
+const FlightsList = ({ departure, arrival, setFlightsToStase }) => {
+  useEffect(() => {
+    setFlightsToStase()
+  }, []);
+
   return (
     <>
       <Switch>
         <Route exact path="/departures">
-          <ul className="flights-list">{mapFlightList(flightsListD)}</ul>
+          <ul className="flights-list">{mapFlightList(departure)}</ul>
         </Route>
         <Route path="/arrivals">
-          <ul className="flights-list">{mapFlightList(flightsListA)}</ul>
+          <ul className="flights-list">{mapFlightList(arrival)}</ul>
+        </Route>
+        <Route path="*">
+          <div className="no-results">
+            Select departures or arrivals. Then use a search field.
+          </div>
         </Route>
       </Switch>
     </>
   );
 };
 
-export default FlightsList;
+const mapState = (state) => {
+  return {
+    departure: departureSelector(state),
+    arrival: arrivalSelector(state),
+  };
+};
+
+const mapDispatch = {
+  setFlightsToStase: flightsActions.setFlightsToStase,
+};
+
+export default connect(mapState, mapDispatch)(FlightsList);

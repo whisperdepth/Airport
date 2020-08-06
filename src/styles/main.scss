@@ -43,9 +43,10 @@
 
 .input-btn {
   width: 135px;
+  height: 90px;
   border-top-right-radius: $border-radius;
   font-size: $unit * 3;
-  background-color: $style-color-1;
+  background-color: $style-color;
   color: $color-secondary;
   outline: none;
   border: none;
@@ -74,7 +75,7 @@
   outline: none;
   border: none;
   padding: 0;
-  background-color: $style-color-1;
+  background-color: $style-color;
   color: $color-secondary;
   font-size: $unit * 3;
   cursor: pointer;
@@ -90,7 +91,7 @@
 
 .chosen-btn {
   background-color: $color-secondary;
-  color: $style-color-1;
+  color: $style-color;
 }
 
 .field-names {
@@ -113,6 +114,7 @@
 
 .large-field {
   width: 200px;
+  position: relative;
 }
 
 .flights-list {
@@ -136,7 +138,25 @@
     }
     & > span:first-child {
       text-align: center;
-      color: $style-color-1;
+      color: $style-color;
     }
   }
+}
+
+.no-results {
+  font-size: $unit * 8;
+  text-align: center;
+  padding-top: $unit * 8;
+  padding-bottom: $unit * 5;
+  color: $style-color;
+}
+
+.airline-text {
+  padding-left: 60px;
+}
+
+.airline-logo {
+  position: absolute;
+  bottom: -6px;
+  width: 55px;
 }
