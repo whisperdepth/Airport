@@ -16,10 +16,10 @@ const Board = () => {
   return (
     <div className="board">
       <div className="board__btns">
-        <Link to="/departures" className="link">
+        <Link to={`/departures${location.search}`} className="link">
           <button className={depButtonClasses}>DEPARTURES</button>
         </Link>
-        <Link to="/arrivals" className="link">
+        <Link to={`/arrivals${location.search}`} className="link">
           <button className={arrButtonClasses}>ARRIVALS</button>
         </Link>
       </div>
@@ -28,7 +28,7 @@ const Board = () => {
         <span className="small-field">Local time</span>
         <span className="medium-field">Destination</span>
         <span className="medium-field">Status</span>
-        <span className="large-field">Airline</span>
+        <span className="airline">Airline</span>
         <span className="medium-field">Flight</span>
       </div>
       <FlightsList />

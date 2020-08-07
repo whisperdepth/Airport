@@ -1,33 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
 import qs from "qs";
-import { arrivalSelector, departureSelector } from "../flights.selectors";
-import * as flightsActions from "../flights.actions";
+import { Link, useLocation } from "react-router-dom";
+import * as flightsActions from "../board/flights.actions";
+import * as searchActions from "./search.actions";
+import { filterTextSelector } from "./search.selectors";
 
-const Search = ({ arrival, departure, setFilteredFlights }) => {
+const Search = ({ setFilterText, filterText, setFlightsToState }) => {
   const location = useLocation();
   const search = qs.parse(location.search, { ignoreQueryPrefix: true });
-  const [inputText, setInputText] = useState(search.search || "");
-  
-  const arrivalFiltered = arrival.filter((flight) =>
-    flight.airlineName.includes(inputText)
-  );
-  const departureFiltered = departure.filter((flight) =>
-    flight.airlineName.includes(inputText)
-  );
+  const filtertext = search.search || "";
 
   const handleClick = () => {
     if (location.pathname === "/") return;
+    if (!filterText) return setFlightsToState("");
 
-    setFilteredFlights(departureFiltered, arrivalFiltered);
-    console.log(departureFiltered, arrivalFiltered);
+    setFlightsToState(filterText);
   };
 
   useEffect(() => {
-    console.log(1)
-    setFilteredFlights(departureFiltered, arrivalFiltered);
-  }, [inputText]);
+    setFlightsToState(filtertext);
+  }, []);
 
   return (
     <div className="search">
@@ -36,8 +29,10 @@ const Search = ({ arrival, departure, setFilteredFlights }) => {
         <div className="input-container">
           <i className="fas fa-search"></i>
           <input
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
+            value={filterText}
+            onChange={(e) => {
+              setFilterText(e.target.value);
+            }}
             type="text"
             className="input"
             placeholder=" Airline, destination or flight #"
@@ -45,8 +40,8 @@ const Search = ({ arrival, departure, setFilteredFlights }) => {
         </div>
         <Link
           to={
-            inputText && location.pathname !== "/"
-              ? `?search=${inputText}`
+            filterText && location.pathname !== "/"
+              ? `?search=${filterText}`
               : "?"
           }
         >
@@ -61,13 +56,12 @@ const Search = ({ arrival, departure, setFilteredFlights }) => {
 
 const mapState = (state) => {
   return {
-    arrival: arrivalSelector(state),
-    departure: departureSelector(state),
+    filterText: filterTextSelector(state),
   };
 };
 
 const mapDispatch = {
-  setFilteredFlights: flightsActions.setFilteredFlights,
+  setFilterText: searchActions.setSearchText,
+  setFlightsToState: flightsActions.setFlightsToStase,
 };
-
 export default connect(mapState, mapDispatch)(Search);

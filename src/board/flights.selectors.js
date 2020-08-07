@@ -1,11 +1,11 @@
 export const departureSelector = (state) => {
-  return state.departure.filter(
+  return state.flights.departure.filter(
     (flight) => new Date(flight.time).getDate() === new Date().getDate()
   );
 };
 
 export const arrivalSelector = (state) => {
-  return state.arrival.filter(
+  return state.flights.arrival.filter(
     (flight) => new Date(flight.time).getDate() === new Date().getDate()
   );
 };

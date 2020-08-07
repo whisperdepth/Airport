@@ -1,3 +1,4 @@
+import { filterFlightsSelector } from "../search/search.selectors";
 import { fetchFlights } from "./flights.gateway";
 
 export const GET_FLIGHTS_LIST = "FLIGHTS/GET_FLIGHTS_LIST";
@@ -11,7 +12,7 @@ export const getDepartures = (flights) => {
   };
 };
 
-export const setFlightsToStase = () => {
+export const setFlightsToStase = (filterText) => {
   return (dispatch) => {
     fetchFlights().then((flightsData) => {
       const departure = flightsData.body.departure.map((flight) => {
@@ -38,9 +39,12 @@ export const setFlightsToStase = () => {
         };
       });
 
+      const filteredDeparture = filterFlightsSelector(departure, filterText);
+      const filteredArrival = filterFlightsSelector(arrival, filterText);
+
       const flights = {
-        departure,
-        arrival,
+        departure: filteredDeparture,
+        arrival: filteredArrival,
       };
 
       dispatch(getDepartures(flights));
@@ -48,13 +52,3 @@ export const setFlightsToStase = () => {
   };
 };
 
-export const setFilteredFlights = (departure, arrival) => {
-  return (dispatch) => {
-    const flights = {
-      departure,
-      arrival,
-    };
-
-    dispatch(getDepartures(flights));
-  };
-};
