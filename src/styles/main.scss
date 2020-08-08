@@ -1,5 +1,5 @@
 @import "./variables.scss";
-body{
+body {
   background-color: $color-main;
 }
 .main {
@@ -94,7 +94,7 @@ body{
   transition-property: border-top-left-radius;
   transition-duration: 1.5s;
   &:hover {
-    border-top-left-radius: 0;
+    border-top-left-radius: $unit;
   }
 }
 
@@ -103,7 +103,7 @@ body{
   transition-property: border-top-right-radius;
   transition-duration: 1.5s;
   &:hover {
-    border-top-right-radius: 0;
+    border-top-right-radius: $unit;
   }
 }
 
@@ -172,7 +172,7 @@ body{
       background-color: $style-color-alt;
       color: $color-secondary;
       font-weight: 700;
-      & > span:first-child{
+      & > span:first-child {
         color: $terminal-color;
       }
     }
