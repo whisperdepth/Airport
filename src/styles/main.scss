@@ -92,7 +92,7 @@ body {
 .departures {
   border-top-left-radius: $border-radius;
   transition-property: border-top-left-radius;
-  transition-duration: 1.5s;
+  transition-duration: 1s;
   &:hover {
     border-top-left-radius: $unit;
   }
@@ -101,7 +101,7 @@ body {
 .arrivals {
   border-top-right-radius: $border-radius;
   transition-property: border-top-right-radius;
-  transition-duration: 1.5s;
+  transition-duration: 1s;
   &:hover {
     border-top-right-radius: $unit;
   }
