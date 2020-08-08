@@ -184,11 +184,18 @@ body {
 }
 
 .page-loaded {
-  font-size: $unit * 8;
+  font-size: $unit * 6;
   text-align: center;
-  padding-top: $unit * 8;
+  margin-top: $unit;
+  padding-top: $unit * 5;
   padding-bottom: $unit * 5;
-  color: $style-color;
+  color: $color-secondary;
+  background-color: $style-color;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius; 
+  border-top-left-radius: $unit;
+  border-top-right-radius: $unit;
+  box-shadow: $box-shadow;
 }
 
 .no-results {
