@@ -1,5 +1,7 @@
 @import "./variables.scss";
-
+body{
+  background-color: $color-main;
+}
 .main {
   margin: auto;
   display: flex;
@@ -89,29 +91,25 @@
 
 .departures {
   border-top-left-radius: $border-radius;
-  transition-property: border-top-left-radius, background-color, color;
+  transition-property: border-top-left-radius;
   transition-duration: 1.5s;
   &:hover {
-    border-top-left-radius: $unit * 4;
-    background-color: $style-color-alt;
-    color: $color-secondary;
+    border-top-left-radius: 0;
   }
 }
 
 .arrivals {
   border-top-right-radius: $border-radius;
-  transition-property: border-top-right-radius, background-color, color;
+  transition-property: border-top-right-radius;
   transition-duration: 1.5s;
   &:hover {
-    border-top-right-radius: $unit * 4;
-    background-color: $style-color-alt;
-    color: $color-secondary;
+    border-top-right-radius: 0;
   }
 }
 
 .chosen-btn {
   background-color: $color-secondary;
-  color: $style-color;
+  color: $style-color-alt;
 }
 
 .field-names {
@@ -154,7 +152,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-left: $unit * 2;
   background-color: $color-secondary;
   color: $color-primary;
 
@@ -169,6 +166,15 @@
     & > span:first-child {
       text-align: center;
       color: $style-color;
+      margin-left: $unit * 2;
+    }
+    &:hover {
+      background-color: $style-color-alt;
+      color: $color-secondary;
+      font-weight: 700;
+      & > span:first-child{
+        color: $terminal-color;
+      }
     }
   }
 }
