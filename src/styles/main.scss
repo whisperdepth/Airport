@@ -164,6 +164,9 @@ body {
     &:nth-child(odd) {
       background-color: $color-main;
     }
+    &:last-child {
+      border-bottom: 1px solid $color-primary;
+    }
     & > span:first-child {
       text-align: center;
       color: $style-color;
