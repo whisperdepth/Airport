@@ -22,7 +22,7 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
 
   useEffect(() => {
     setFlightsToState(filtertext);
-    inputText.current.value = search.search;
+    inputText.current.value = search.search || "";
   }, []);
 
   return (
