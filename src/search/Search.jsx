@@ -18,11 +18,11 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
     setFlightsToState(filterText);
   };
 
-  const inputText = useRef(null);
+  const textInput = useRef(null);
 
   useEffect(() => {
     setFlightsToState(filtertext);
-    inputText.current.value = search.search || "";
+    textInput.current.value = search.search || "";
   }, []);
 
   return (
@@ -32,7 +32,7 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
         <div className="input-container">
           <i className="fas fa-search"></i>
           <input
-            ref={inputText}
+            ref={textInput}
             value={filterText}
             onChange={(e) => {
               setFilterText(e.target.value);
