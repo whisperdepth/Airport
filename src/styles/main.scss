@@ -173,7 +173,10 @@ body {
       color: $color-secondary;
       font-weight: 700;
       & > span:first-child {
-        color: $terminal-color;
+        border-radius: 50%;
+        width: 50px;
+        margin-right: 50px;
+        background-color: $color-secondary;
       }
     }
   }
