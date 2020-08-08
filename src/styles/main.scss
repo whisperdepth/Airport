@@ -52,6 +52,12 @@
   border: none;
   padding: 0;
   cursor: pointer;
+  transition-property: border-top-right-radius, background-color;
+  transition-duration: 1s;
+  &:hover {
+    border-top-right-radius: $unit * 4;
+    background-color: $style-color-alt;
+  }
 }
 
 .board {
@@ -83,10 +89,24 @@
 
 .departures {
   border-top-left-radius: $border-radius;
+  transition-property: border-top-left-radius, background-color, color;
+  transition-duration: 1.5s;
+  &:hover {
+    border-top-left-radius: $unit * 4;
+    background-color: $style-color-alt;
+    color: $color-secondary;
+  }
 }
 
 .arrivals {
   border-top-right-radius: $border-radius;
+  transition-property: border-top-right-radius, background-color, color;
+  transition-duration: 1.5s;
+  &:hover {
+    border-top-right-radius: $unit * 4;
+    background-color: $style-color-alt;
+    color: $color-secondary;
+  }
 }
 
 .chosen-btn {

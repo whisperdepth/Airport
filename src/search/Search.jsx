@@ -29,7 +29,7 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
         <div className="input-container">
           <i className="fas fa-search"></i>
           <input
-            value={filterText || search.search}
+            value={filterText}
             onChange={(e) => {
               setFilterText(e.target.value);
             }}
