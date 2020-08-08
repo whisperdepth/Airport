@@ -24,7 +24,8 @@ const FlightsList = ({ departure, arrival }) => {
         </Route>
         <Route path="*">
           <div className="page-loaded">
-            Select departures or arrivals. Then use a search field.
+            Select departures or arrivals to see todays flights shedule. Then
+            use a search field to filter it.
           </div>
         </Route>
       </Switch>
