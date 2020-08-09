@@ -27,7 +27,7 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
 
   return (
     <div className="search">
-      <span className="search__text">SEARCH FLIGHT </span>
+      <span className="search__text">SEARCH FLIGHT</span>
       <form className="search-form">
         <div className="input-container">
           <i className="fas fa-search"></i>
