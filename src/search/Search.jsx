@@ -23,7 +23,6 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
     const searchText = search.search || "";
     setFlightsToState(searchText);
     setFilterText(searchText);
-    textInput.current.value = filterText;
   }, []);
 
   return (
