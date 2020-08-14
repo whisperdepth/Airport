@@ -3,7 +3,7 @@ import { fetchFlights } from "./flights.gateway";
 
 export const GET_FLIGHTS_LIST = "FLIGHTS/GET_FLIGHTS_LIST";
 
-export const getDepartures = (flights) => {
+const getFlightsList = (flights) => {
   return {
     type: GET_FLIGHTS_LIST,
     payload: {
@@ -48,7 +48,7 @@ export const setFlightsToStase = (filterText) => {
           arrival: filteredArrival,
         };
 
-        dispatch(getDepartures(flights));
+        dispatch(getFlightsList(flights));
       })
       .catch(() => alert("Internal server error. Please, try again later."));
   };
