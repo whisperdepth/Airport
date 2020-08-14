@@ -15,7 +15,6 @@ const FlightsList = ({ departure, arrival }) => {
     return <div className="no-results"> No flights found by your request</div>;
   }
   return (
-    <>
       <Switch>
         <Route path="/departures">
           <ul className="flights-list">{mapFlightList(departure)}</ul>
@@ -30,7 +29,6 @@ const FlightsList = ({ departure, arrival }) => {
           </div>
         </Route>
       </Switch>
-    </>
   );
 };
 
