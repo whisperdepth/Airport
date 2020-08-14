@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import qs from "qs";
 import { Link, useLocation } from "react-router-dom";
+import './styles/search.scss'
 import * as flightsActions from "../board/flights.actions";
 import * as searchActions from "./search.actions";
 import { filterTextSelector } from "./search.selectors";

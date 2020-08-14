@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+import "../styles/flights-list.scss";
 import FlightsListItem from "./FlightsListItem";
 import { departureSelector, arrivalSelector } from "../flights.selectors";
 

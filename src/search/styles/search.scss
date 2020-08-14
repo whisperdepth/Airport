@@ -1,0 +1,53 @@
+@import '../../styles/variables.scss';
+
+.search {
+    height: 200px;
+    width: 700px;
+    font-size: $unit * 6;
+  
+    &__text {
+      display: block;
+      padding-top: $unit * 3;
+      padding-bottom: $unit * 3;
+    }
+  }
+  
+  .search-form {
+    display: flex;
+    width: 700px;
+    box-shadow: $box-shadow;
+  }
+  
+  .input-container {
+    padding-top: $unit * 2;
+    padding-left: $unit;
+    width: 565px;
+    background-color: $color-secondary;
+  }
+  
+  .input {
+    width: 490px;
+    height: 70px;
+    font-size: $unit * 3;
+    border: none;
+    outline: none;
+  }
+  
+  .input-btn {
+    width: 135px;
+    height: 90px;
+    border-top-right-radius: $border-radius;
+    font-size: $unit * 3;
+    background-color: $style-color;
+    color: $color-secondary;
+    outline: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition-property: border-top-right-radius, background-color;
+    transition-duration: 1s;
+    &:hover {
+      border-top-right-radius: $unit * 4;
+      background-color: $style-color-alt;
+    }
+  }
