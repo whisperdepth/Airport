@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import qs from "qs";
 import { Link, useLocation } from "react-router-dom";
@@ -16,8 +16,6 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
     setFlightsToState(filterText);
   };
 
-  const textInput = useRef(null);
-
   useEffect(() => {
     const search = qs.parse(location.search, { ignoreQueryPrefix: true });
     const searchText = search.search || "";
@@ -32,7 +30,6 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
         <div className="input-container">
           <i className="fas fa-search"></i>
           <input
-            ref={textInput}
             value={filterText}
             onChange={(e) => {
               setFilterText(e.target.value);
