@@ -10,8 +10,7 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
   const location = useLocation();
 
   const handleClick = () => {
-    if (location.pathname === "/") return;
-    filterText ? setFlightsToState(filterText) : setFlightsToState("");
+    location.pathname === "/" ? null : setFlightsToState(filterText);
   };
 
   useEffect(() => {
