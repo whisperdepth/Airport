@@ -9,7 +9,7 @@ import { filterTextSelector } from "./search.selectors";
 const Search = ({ setFilterText, filterText, setFlightsToState }) => {
   const location = useLocation();
   const search = qs.parse(location.search, { ignoreQueryPrefix: true });
-  const filtertext = search.search || "";
+  const searchText = search.search || "";
 
   const handleClick = () => {
     if (location.pathname === "/") return;
@@ -21,7 +21,7 @@ const Search = ({ setFilterText, filterText, setFlightsToState }) => {
   const textInput = useRef(null);
 
   useEffect(() => {
-    setFlightsToState(filtertext);
+    setFlightsToState(searchText);
     textInput.current.value = search.search || "";
   }, []);
 
