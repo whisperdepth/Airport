@@ -1,9 +1,14 @@
 export const filterTextSelector = (state) => state.filterText;
 
+const doesInclude = (flightParameter, filtertext) =>
+  flightParameter.toUpperCase().includes(filtertext.toUpperCase());
+
 export const filterFlightsSelector = (flights, filterText) =>
-  flights.filter(
-    (flight) =>
-      flight.airlineName.toUpperCase().includes(filterText.toUpperCase()) ||
-      flight.city.toUpperCase().includes(filterText.toUpperCase()) ||
-      flight.flightNum.toUpperCase().includes(filterText.toUpperCase())
-  );
+  flights.filter((flight) => {
+    const { airlineName, city, flightNum } = flight;
+    return (
+      doesInclude(airlineName, filterText) ||
+      doesInclude(city, filterText) ||
+      doesInclude(flightNum, filterText)
+    );
+  });
