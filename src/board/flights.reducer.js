@@ -10,7 +10,6 @@ export default (state = initialValue, action) => {
     case GET_FLIGHTS_LIST:
       const { departure, arrival } = action.payload.flights;
       return {
-        ...state,
         departure,
         arrival,
       };
