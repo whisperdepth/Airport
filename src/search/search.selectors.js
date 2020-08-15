@@ -1,6 +1,4 @@
-export const filterTextSelector = (state) => {
-  return state.filterText;
-};
+export const filterTextSelector = (state) => state.filterText;
 
 export const filterFlightsSelector = (flights, filterText) =>
   flights.filter(
