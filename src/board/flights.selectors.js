@@ -10,11 +10,3 @@ export const arrivalSelector = (state) => {
   );
 };
 
-export const todayFlightsSelector = (state) => {
-  const departure = departureSelector(state);
-  const arrival = arrivalSelector(state);
-  return {
-    departure,
-    arrival,
-  };
-};
