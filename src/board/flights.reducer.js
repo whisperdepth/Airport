@@ -8,10 +8,11 @@ const initialValue = {
 export default (state = initialValue, action) => {
   switch (action.type) {
     case GET_FLIGHTS_LIST:
+      const { departure, arrival } = action.payload.flights;
       return {
         ...state,
-        departure: action.payload.flights.departure,
-        arrival: action.payload.flights.arrival,
+        departure,
+        arrival,
       };
     default:
       return state;
