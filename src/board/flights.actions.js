@@ -19,7 +19,6 @@ export const setFlightsToStase = (filterText) => (dispatch) =>
         city: flight["airportToID.city_en"],
         status: flight.status,
         airlineName: flight.airline.en.name,
-        airlineLogo: flight.airline.en.logoSmallName,
         flightNum: flight["carrierID.code"] + flight.fltNo,
       }));
 
@@ -29,7 +28,6 @@ export const setFlightsToStase = (filterText) => (dispatch) =>
         city: flight["airportFromID.city_en"],
         status: flight.status,
         airlineName: flight.airline.en.name,
-        airlineLogo: flight.airline.en.logoSmallName,
         flightNum: flight["carrierID.code"] + flight.fltNo,
       }));
 

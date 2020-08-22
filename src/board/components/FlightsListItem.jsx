@@ -6,21 +6,16 @@ export const FlightsListItem = ({
   time,
   city,
   status,
-  airlineLogo,
   airlineName,
   flightNum,
 }) => {
-
   return (
     <li className="flights-list__item">
       <span className="small-field">{term}</span>
       <span className="small-field">{moment(time).format("HH:mm")}</span>
       <span className="medium-field">{city}</span>
       <span className="medium-field">{status}</span>
-      <div className="airline">
-        <img className="airline__logo" src={airlineLogo} alt="logo" />
-        <span className="airline__text">{airlineName}</span>
-      </div>
+      <span className="airline">{airlineName}</span>
       <span className="medium-field">{flightNum}</span>
     </li>
   );

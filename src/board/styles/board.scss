@@ -1,84 +1,74 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .board {
-    margin-top: $unit * 3;
+  margin-top: $unit * 3;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  &__btns {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    &__btns {
-      display: flex;
-    }
   }
-  
-  .link {
-    display: inline-block;
-    width: 50%;
+}
+
+.link {
+  display: inline-block;
+  width: 50%;
+}
+
+.table-btn {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  border: none;
+  padding: 0;
+  background-color: $style-color;
+  color: $color-secondary;
+  font-size: $unit * 3;
+  cursor: pointer;
+}
+
+.departures {
+  border-top-left-radius: $border-radius;
+  transition-property: border-top-left-radius;
+  transition-duration: 1s;
+  &:hover {
+    border-top-left-radius: $unit;
   }
-  
-  .table-btn {
-    width: 100%;
-    height: 50px;
-    outline: none;
-    border: none;
-    padding: 0;
-    background-color: $style-color;
-    color: $color-secondary;
-    font-size: $unit * 3;
-    cursor: pointer;
+}
+
+.arrivals {
+  border-top-right-radius: $border-radius;
+  transition-property: border-top-right-radius;
+  transition-duration: 1s;
+  &:hover {
+    border-top-right-radius: $unit;
   }
-  
-  .departures {
-    border-top-left-radius: $border-radius;
-    transition-property: border-top-left-radius;
-    transition-duration: 1s;
-    &:hover {
-      border-top-left-radius: $unit;
-    }
-  }
-  
-  .arrivals {
-    border-top-right-radius: $border-radius;
-    transition-property: border-top-right-radius;
-    transition-duration: 1s;
-    &:hover {
-      border-top-right-radius: $unit;
-    }
-  }
-  
-  .chosen-btn {
-    background-color: $color-secondary;
-    color: $style-color-alt;
-  }
-  
-  .field-names {
-    display: flex;
-    width: 100%;
-    padding-top: $unit * 7;
-    padding-left: $unit * 2;
-    padding-bottom: $unit * 2;
-    background-color: $color-secondary;
-    font-weight: 700;
-  }
-  
-  .small-field {
-    width: 100px;
-  }
-  
-  .medium-field {
-    width: 150px;
-  }
-  
-  .airline {
-    width: 200px;
-    position: relative;
-  
-    &__text {
-      padding-left: 60px;
-    }
-  
-    &__logo {
-      position: absolute;
-      bottom: -6px;
-      width: 55px;
-    }
-  }
+}
+
+.chosen-btn {
+  background-color: $color-secondary;
+  color: $style-color-alt;
+}
+
+.field-names {
+  display: flex;
+  width: 100%;
+  padding-top: $unit * 7;
+  padding-left: $unit * 2;
+  padding-bottom: $unit * 2;
+  background-color: $color-secondary;
+  font-weight: 700;
+}
+
+.small-field {
+  width: 100px;
+}
+
+.medium-field {
+  width: 150px;
+}
+
+.airline {
+  width: 200px;
+  position: relative;
+}
